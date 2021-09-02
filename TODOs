@@ -15,3 +15,8 @@
         - [x] Create PlaceDetails component with own stylesheet
         - [x] Create boilerplate code for all the components
         - [x] export default all the components
+    - [x] Setup App skeleton
+        - [x] import CssBaseline and Grid from material-ui/core to App
+        - [x] Call CssBaseline component in App (used to fix paddings/margins/background colours)
+        - [x] Call Header component in App
+        - [x] Create two Grid nodes for List and Map components
