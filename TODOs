@@ -1,0 +1,10 @@
+- [x] Project setup 
+    - [x] npx create-react-app
+    - [x] Clean up folder structure and remove items not needed
+    - [x] Install dependencies
+        - [x] material-ui/core
+        - [x] material-ui/icons
+        - [x] material-ui/lab
+        - [x] react-google-maps/api
+        - [x] axios
+        - [x] google-map-react
