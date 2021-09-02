@@ -8,3 +8,10 @@
         - [x] react-google-maps/api
         - [x] axios
         - [x] google-map-react
+    - [x] Create folder structure for components and import them into App
+        - [x] Create Header component with own stylesheet
+        - [x] Create List component with own stylesheet
+        - [x] Create Map component with own stylesheet
+        - [x] Create PlaceDetails component with own stylesheet
+        - [x] Create boilerplate code for all the components
+        - [x] export default all the components
