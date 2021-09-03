@@ -9,6 +9,7 @@ Discover all the best restaurants, attractions, and hotels based on location.
 - ENV variables for improved security
 
 ## Built With
+- Material-UI react framework
 
 <a href="/TODOs">View check list</a>
 

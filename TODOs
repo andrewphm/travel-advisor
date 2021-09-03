@@ -13,10 +13,15 @@
         - [x] Create List component with own stylesheet
         - [x] Create Map component with own stylesheet
         - [x] Create PlaceDetails component with own stylesheet
-        - [x] Create boilerplate code for all the components
+        - [x] Create boilerplate code for all the  components
         - [x] export default all the components
     - [x] Setup App skeleton
         - [x] import CssBaseline and Grid from material-ui/core to App
         - [x] Call CssBaseline component in App (used to fix paddings/margins/background colours)
         - [x] Call Header component in App
         - [x] Create two Grid nodes for List and Map components
+
+- [x] Header component
+    - [x] import Autocomplete from @react-google-maps/api
+    - [x] import Appbar, Toolbar, Typography, InputBase, Box from materialui
+    - [x] Create layout
