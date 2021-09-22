@@ -2,7 +2,7 @@
 Discover all the best restaurants, attractions, and hotels based on location. 
 
 
-[View Live](http://andrewpham.ca/insertlink)
+[View Live](http://andrewpham.ca/travel-advisor)
 
 ## Features
 - Fetching data from RapidApi (Travel Advisor API and Open Weather Map API )
