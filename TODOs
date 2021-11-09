@@ -1,7 +1,7 @@
 - [x] Project setup 
-    - [x] npx create-react-app
+    - [x] Initialize via npx create-react-app
     - [x] Clean up folder structure and remove items not needed
-    - [x] Install dependencies
+    - [x] Install necessary dependencies
         - [x] material-ui/core
         - [x] material-ui/icons
         - [x] material-ui/lab
@@ -24,4 +24,4 @@
 - [x] Header component
     - [x] import Autocomplete from @react-google-maps/api
     - [x] import Appbar, Toolbar, Typography, InputBase, Box from materialui
-    - [x] Create layout
+    - [x] Create layout 

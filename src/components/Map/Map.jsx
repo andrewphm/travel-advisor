@@ -6,28 +6,29 @@ import Rating from '@material-ui/lab';
 
 import useStyles from './styles';
 
+// Config
+import { API_KEY } from '../../config';
+
 const Map = () => {
-    const classes = useStyles();
-    const isMobile = useMediaQuery('(min-width:600px)');
-    
-    const coordinates = { lat: 43.651070, lng: -79.347015 };
+  const classes = useStyles();
+  const isMobile = useMediaQuery('(min-width:600px)');
 
-    return (
-        <div className={classes.mapContainer}>
-            <GoogleMapReact
-                bootstrapURLKeys={ { key: 'AIzaSyCq2NeJVLrkkE2paK0etbizKJ9T6of0uAs' }}
-                defaultCenter={coordinates}
-                center={coordinates}
-                defaultZoom={14}
-                margin={[50, 50, 50, 50]}
-                options={''}
-                onChange={''}
-                onChildClick={''}
-            >
+  const coordinates = { lat: 43.65107, lng: -79.347015 };
 
-            </GoogleMapReact>
-        </div>
-    );
-}
+  return (
+    <div className={classes.mapContainer}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: API_KEY }}
+        defaultCenter={coordinates}
+        center={coordinates}
+        defaultZoom={14}
+        margin={[50, 50, 50, 50]}
+        options={''}
+        onChange={''}
+        onChildClick={''}
+      ></GoogleMapReact>
+    </div>
+  );
+};
 
 export default Map;
