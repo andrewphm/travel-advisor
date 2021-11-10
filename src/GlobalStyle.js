@@ -11,11 +11,17 @@ export const GlobalStyle = createGlobalStyle`
         --fontBig: 1.5rem;
         --fontMed: 1.2rem;
         --fontSmall: 1rem;
+        --headerHeight: 5rem;
     }
 
     * {
         box-sizing: border-box;
         font-family: 'Abel', sans-serif;
+    }
+
+    #root {
+        max-height: 100vh;
+        width: 100vw;
     }
 
     body {
@@ -26,7 +32,6 @@ export const GlobalStyle = createGlobalStyle`
         h1 {
             font-size: 2rem;
             font-weight: 600;
-            color: var(--white);
         }
 
         h3 {
@@ -36,7 +41,6 @@ export const GlobalStyle = createGlobalStyle`
 
         p {
             font-size: 1rem;
-            color: var(--white);
         }
     }
 `;

@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   background: var(--darkGrey);
-  padding: 0px 70px;
+  padding: 0px 50px;
   width: 100%;
-  height: 100%;
   position: sticky;
 `;
 
@@ -56,6 +55,7 @@ export const Search = styled.div`
 
   .search-icon {
     width: 20px;
+    transition: all 0.3s;
   }
 `;
 

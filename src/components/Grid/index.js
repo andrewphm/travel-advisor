@@ -4,7 +4,7 @@ import React from 'react';
 import { Wrapper } from './Grid.styles';
 
 const Grid = ({ children }) => {
-  <Wrapper>{children}</Wrapper>;
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default Grid;

@@ -7,18 +7,16 @@ import { GlobalStyle } from './GlobalStyle';
 import Grid from './components/Grid';
 import Header from './components/Header';
 import List from './components/List';
-import Map from './components/Map/Map';
-import PlaceDetails from './components/PlaceDetails/PlaceDetails';
+import Map from './components/Map';
 
 const App = () => {
   return (
     <>
       <Header />
-      <div id="main">
-        <Grid>
-          <List />
-        </Grid>
-      </div>
+      <Grid>
+        <List />
+        <Map />
+      </Grid>
       <GlobalStyle />
     </>
   );
