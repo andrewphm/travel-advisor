@@ -1,12 +1,32 @@
 import React, { useState } from 'react';
 
-import { Wrapper, FormControl, Form, Content } from './List.styles';
+// Styles
+import { Wrapper, FormControl, Form, Content, GridItem } from './List.styles';
+
+// Components
+import PlaceDetails from '../PlaceDetails';
 
 const List = () => {
   const [type, setType] = useState('Choose a type');
   const [rating, setRating] = useState('All');
 
   const places = [
+    { name: 'Cool Place' },
+    { name: 'Best Beer' },
+    { name: 'Best Steak' },
+    { name: 'Cool Place' },
+    { name: 'Best Beer' },
+    { name: 'Best Steak' },
+    { name: 'Cool Place' },
+    { name: 'Best Beer' },
+    { name: 'Best Steak' },
+    { name: 'Best Beer' },
+    { name: 'Best Steak' },
+    { name: 'Cool Place' },
+    { name: 'Best Beer' },
+    { name: 'Best Steak' },
+    { name: 'Best Beer' },
+    { name: 'Best Steak' },
     { name: 'Cool Place' },
     { name: 'Best Beer' },
     { name: 'Best Steak' },
@@ -43,7 +63,10 @@ const List = () => {
           </select>
         </FormControl>
       </Form>
-      <Content></Content>
+
+      {places?.map((place, i) => (
+        <PlaceDetails place={place} />
+      ))}
     </Wrapper>
   );
 };

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   height: 100%;
   color: var(--medGrey);
+  overflow-y: auto;
 
   h1 {
     font-size: clamp(1rem, 5vw, 1.5rem);
@@ -39,3 +40,5 @@ export const FormControl = styled.form`
 export const Content = styled.div`
   display: grid;
 `;
+
+export const GridItem = styled.div``;
