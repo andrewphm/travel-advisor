@@ -14,20 +14,37 @@ import Map from './components/Map';
 
 const App = () => {
   const [places, setPlaces] = useState([]);
+  const [coordinates, setCoordinates] = useState({});
+  const [bounds, setBounds] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
+  // Get current position and save to state
   useEffect(() => {
-    API.getPlacesData().then((data) => {
-      console.log(data);
-      setPlaces(data);
-    });
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        setCoordinates({ lat: latitude, lng: longitude });
+      }
+    );
   }, []);
+
+  console.log(coordinates);
+
+  // useEffect(() => {
+  //   API.getPlacesData(coordinates, bounds).then((data) => {
+  //     setPlaces(data);
+  //   });
+  // }, [bounds, coordinates]);
 
   return (
     <>
       <Header />
       <Grid>
         <List />
-        <Map />
+        <Map
+          setCoordinates={setCoordinates}
+          setBounds={setBounds}
+          coordinates={coordinates}
+        />
       </Grid>
       <GlobalStyle />
     </>

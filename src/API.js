@@ -17,7 +17,7 @@ const options = {
 };
 
 const apiSettings = {
-  getPlacesData: async () => {
+  getPlacesData: async (coordinates, bounds) => {
     try {
       const {
         data: { data },

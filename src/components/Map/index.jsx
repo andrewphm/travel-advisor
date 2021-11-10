@@ -7,8 +7,8 @@ import { API_KEY } from '../../config';
 //styles
 import { Wrapper } from './Map.styles';
 
-const Map = () => {
-  const coordinates = { lat: 43.65107, lng: -79.347015 };
+const Map = ({ setCoordinates, setBounds, coordinates }) => {
+  const cord = { lat: 43.65107, lng: -79.347015 };
 
   return (
     <Wrapper>
@@ -19,7 +19,10 @@ const Map = () => {
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
         options={''}
-        onChange={''}
+        onChange={(e) => {
+          setCoordinates({ lat: e.center.lat, lng: e.center.lng });
+          setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
+        }}
         onChildClick={''}
       ></GoogleMapReact>
     </Wrapper>
