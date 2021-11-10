@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  position: relative;
   width: 100vw;
-  height: 90vh;
+  height: calc(100vh - var(--headerHeight));
   margin: 0 auto;
-  padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 2rem;
+  grid-template-columns: 1.25fr 2fr;
   align-items: center;
 `;

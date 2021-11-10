@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   padding: 0px 50px;
   width: 100%;
   position: sticky;
+  height: var(--headerHeight);
 `;
 
 export const Content = styled.div`

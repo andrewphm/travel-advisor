@@ -1,42 +1,21 @@
 import React, { useState } from 'react';
 
 // Styles
-import { Wrapper, FormControl, Form, Content, GridItem } from './List.styles';
+import { Wrapper, FormControl, Content } from './List.styles';
 
 // Components
 import PlaceDetails from '../PlaceDetails';
+import Spinner from '../Spinner';
 
-const List = () => {
+const List = ({ places, isLoading }) => {
   const [type, setType] = useState('Choose a type');
   const [rating, setRating] = useState('All');
 
-  const places = [
-    { name: 'Cool Place' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-    { name: 'Cool Place' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-    { name: 'Cool Place' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-    { name: 'Cool Place' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-    { name: 'Cool Place' },
-    { name: 'Best Beer' },
-    { name: 'Best Steak' },
-  ];
-
   return (
     <Wrapper>
-      <h1>Restaurants, hotels & attractions around you</h1>
-      <Form>
-        <FormControl>
+      <h1>Restaurants, hotels & attractions near you</h1>
+      <FormControl>
+        <form>
           <label htmlFor="type">Select a type</label>
           <select
             value={type}
@@ -47,10 +26,10 @@ const List = () => {
             <option value="hotels">Hotel</option>
             <option value="attractions">Attractions</option>
           </select>
-        </FormControl>
+        </form>
 
-        <FormControl>
-          <label htmlFor="rating">Filter ratings</label>
+        <form>
+          <label htmlFor="rating">Filter by ratings</label>
           <select
             value={rating}
             onChange={(e) => setRating(e.target.value)}
@@ -61,12 +40,17 @@ const List = () => {
             <option value="4">Above 4.0</option>
             <option value="4.5">Above 4.5</option>
           </select>
-        </FormControl>
-      </Form>
-
-      {places?.map((place, i) => (
-        <PlaceDetails place={place} />
-      ))}
+        </form>
+      </FormControl>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Content>
+          {places?.map((place, i) => (
+            <PlaceDetails place={place} />
+          ))}
+        </Content>
+      )}
     </Wrapper>
   );
 };

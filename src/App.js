@@ -33,9 +33,10 @@ const App = () => {
   useEffect(() => {
     if (bounds && coordinates) {
       console.log('Finally firing');
-      API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
-        setPlaces(data);
-      });
+      // API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
+      //   setPlaces(data);
+      // });
+      console.log(bounds);
     }
   }, [bounds]);
 
@@ -44,7 +45,7 @@ const App = () => {
       {console.log('rendering')}
       <Header />
       <Grid>
-        <List places={places} />
+        <List places={places} isLoading={isLoading} />
         {isLoading ? (
           <Spinner />
         ) : (

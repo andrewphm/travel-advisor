@@ -13,7 +13,7 @@ const apiSettings = {
           bl_latitude: sw.lat,
           tr_latitude: ne.lat,
           bl_longitude: sw.lng,
-          tr_longitude: ne.lat,
+          tr_longitude: ne.lng,
         },
         headers: {
           'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',

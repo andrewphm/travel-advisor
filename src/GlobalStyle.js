@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         --fontBig: 1.5rem;
         --fontMed: 1.2rem;
         --fontSmall: 1rem;
-        --headerHeight: 5rem;
+        --headerHeight: 3.5rem;
     }
 
     * {
@@ -20,11 +20,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        max-height: 100vh;
-        width: 100vw;
     }
 
     body {
+        max-height: 100vh;
+        width: 100vw;
         margin: 0;
         padding: 0;
 
