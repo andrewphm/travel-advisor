@@ -8,13 +8,10 @@ import { API_KEY } from '../../config';
 import { Wrapper } from './Map.styles';
 
 const Map = ({ setCoordinates, setBounds, coordinates }) => {
-  const cord = { lat: 43.65107, lng: -79.347015 };
-
   return (
     <Wrapper>
       <GoogleMapReact
         bootstrapURLKeys={{ key: API_KEY }}
-        defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}

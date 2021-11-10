@@ -11,6 +11,7 @@ import Grid from './components/Grid';
 import Header from './components/Header';
 import List from './components/List';
 import Map from './components/Map';
+import Spinner from './components/Spinner';
 
 const App = () => {
   const [places, setPlaces] = useState([]);
@@ -20,31 +21,39 @@ const App = () => {
 
   // Get current position and save to state
   useEffect(() => {
+    setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         setCoordinates({ lat: latitude, lng: longitude });
+        setIsLoading(false);
       }
     );
   }, []);
 
-  console.log(coordinates);
-
-  // useEffect(() => {
-  //   API.getPlacesData(coordinates, bounds).then((data) => {
-  //     setPlaces(data);
-  //   });
-  // }, [bounds, coordinates]);
+  useEffect(() => {
+    if (bounds && coordinates) {
+      console.log('Finally firing');
+      API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
+        setPlaces(data);
+      });
+    }
+  }, [bounds]);
 
   return (
     <>
+      {console.log('rendering')}
       <Header />
       <Grid>
-        <List />
-        <Map
-          setCoordinates={setCoordinates}
-          setBounds={setBounds}
-          coordinates={coordinates}
-        />
+        <List places={places} />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <Map
+            setCoordinates={setCoordinates}
+            setBounds={setBounds}
+            coordinates={coordinates}
+          />
+        )}
       </Grid>
       <GlobalStyle />
     </>
