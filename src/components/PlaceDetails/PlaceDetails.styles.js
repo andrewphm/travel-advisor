@@ -12,7 +12,7 @@ export const Card = styled.div`
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
 
   :hover {
-    cursor: pointer;
+    background-color: rgba(254, 247, 225, 0.3);
   }
 `;
 
@@ -29,22 +29,53 @@ export const Media = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
   width: 100%;
   justify-content: flex-start;
 
   h4 {
-    padding: 0.5em 0 1.5em 0;
+    font-size: 1.2rem;
   }
 
   .details {
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
+    column-gap: 1rem;
+    padding-bottom: 12px;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      color: blue;
+      font-weight: 900;
+      font-size: 0.8rem;
+
+      :hover {
+        opacity: 0.7;
+      }
+    }
   }
 
   .details-awards {
     display: flex;
     flex-direction: column;
+  }
+
+  .cuisines {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+  .cuisine {
+    background-color: lightgrey;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 0.2em 0.5em;
+    border-radius: 10px;
+    margin: 5px 0;
+
+    p {
+      font-size: 0.8rem;
+    }
   }
 `;
