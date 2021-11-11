@@ -22,8 +22,10 @@ const App = () => {
   // Get current position and save to state
   useEffect(() => {
     setIsLoading(true);
+    console.log('trying to get current location');
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
+        console.log('Got current location');
         setCoordinates({ lat: latitude, lng: longitude });
         setIsLoading(false);
       }
@@ -32,11 +34,10 @@ const App = () => {
 
   useEffect(() => {
     if (bounds && coordinates) {
-      console.log('Finally firing');
-      // API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
-      //   setPlaces(data);
-      // });
-      console.log(bounds);
+      API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
+        setPlaces(data);
+        console.log(data);
+      });
     }
   }, [bounds]);
 

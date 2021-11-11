@@ -6,6 +6,6 @@ export const Wrapper = styled.div`
   height: calc(100vh - var(--headerHeight));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.25fr 2fr;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
 `;

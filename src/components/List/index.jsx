@@ -13,42 +13,45 @@ const List = ({ places, isLoading }) => {
 
   return (
     <Wrapper>
-      <h1>Restaurants, hotels & attractions near you</h1>
       <FormControl>
-        <form>
-          <label htmlFor="type">Select a type</label>
-          <select
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-            name="type"
-          >
-            <option value="restaurants">Restaurant</option>
-            <option value="hotels">Hotel</option>
-            <option value="attractions">Attractions</option>
-          </select>
-        </form>
+        <h1>Restaurants, Hotels & Attractions</h1>
+        <div className="form-container">
+          <form>
+            <label htmlFor="type">Select a type</label>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              name="type"
+            >
+              <option value="restaurants">Restaurant</option>
+              <option value="hotels">Hotel</option>
+              <option value="attractions">Attractions</option>
+            </select>
+          </form>
 
-        <form>
-          <label htmlFor="rating">Filter by ratings</label>
-          <select
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-            name="type"
-          >
-            <option value="0">All</option>
-            <option value="3">Above 3.0 </option>
-            <option value="4">Above 4.0</option>
-            <option value="4.5">Above 4.5</option>
-          </select>
-        </form>
+          <form>
+            <label htmlFor="rating">Filter by ratings</label>
+            <select
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+              name="type"
+            >
+              <option value="0">All</option>
+              <option value="3">Above 3.0 </option>
+              <option value="4">Above 4.0</option>
+              <option value="4.5">Above 4.5</option>
+            </select>
+          </form>
+        </div>
       </FormControl>
       {isLoading ? (
         <Spinner />
       ) : (
         <Content>
-          {places?.map((place, i) => (
-            <PlaceDetails place={place} />
-          ))}
+          {places.map((place, i) => {
+            if (!place.ad_position)
+              return <PlaceDetails key={i} place={place} />;
+          })}
         </Content>
       )}
     </Wrapper>

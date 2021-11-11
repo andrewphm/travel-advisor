@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  padding: 10px;
-  height: 90%;
+  height: 100%;
+  width: 100%;
 `;

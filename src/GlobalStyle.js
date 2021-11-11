@@ -12,6 +12,9 @@ export const GlobalStyle = createGlobalStyle`
         --fontMed: 1.2rem;
         --fontSmall: 1rem;
         --headerHeight: 3.5rem;
+
+
+        --clr-grey: hsl(210, 36%, 96%);
     }
 
     * {
