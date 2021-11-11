@@ -5,9 +5,9 @@ import GoogleMapReact from 'google-map-react';
 import { API_KEY } from '../../config';
 
 //styles
-import { Wrapper } from './Map.styles';
+import { Wrapper, Preview } from './Map.styles';
 
-const Map = ({ setCoordinates, setBounds, coordinates }) => {
+const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
   return (
     <Wrapper>
       <GoogleMapReact
@@ -22,7 +22,11 @@ const Map = ({ setCoordinates, setBounds, coordinates }) => {
           console.log(e);
         }}
         onChildClick={''}
-      ></GoogleMapReact>
+      >
+        {places?.map((map) => (
+          <Preview />
+        ))}
+      </GoogleMapReact>
     </Wrapper>
   );
 };

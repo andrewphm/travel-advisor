@@ -17,7 +17,7 @@ export const Card = styled.div`
 `;
 
 export const Media = styled.div`
-  height: 200px;
+  height: 225px;
   width: 100%;
   overflow: hidden;
   background-image: url(${(props) => props.image});
@@ -52,6 +52,16 @@ export const Content = styled.div`
       :hover {
         opacity: 0.7;
       }
+    }
+
+    .ratings {
+      display: flex;
+      column-gap: 0.3em;
+    }
+
+    .stars {
+      position: relative;
+      bottom: 3px;
     }
   }
 

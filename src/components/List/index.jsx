@@ -50,7 +50,7 @@ const List = ({ places, isLoading }) => {
         <Content>
           {places?.map((place, i) => {
             if (!place.ad_position)
-              return <PlaceDetails key={i} place={place} />;
+              return <PlaceDetails id={i} key={i} place={place} />;
           })}
         </Content>
       )}

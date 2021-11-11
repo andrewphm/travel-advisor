@@ -1,18 +1,16 @@
-import { makeStyles } from '@material-ui/core';
 import React from 'react';
+
+// Components
+import Rating from '../Rating';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCoffee,
-  faPhoneAlt,
-  faMapMarkerAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPhoneAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import { Card, Media, Content } from './PlaceDetails.styles';
 
-const PlaceDetails = ({ place }) => {
+const PlaceDetails = ({ place, id }) => {
   const {
     name,
     address,
@@ -24,16 +22,28 @@ const PlaceDetails = ({ place }) => {
     phone,
     web_url,
     website,
+    num_reviews,
+    raw_ranking,
+    rating,
   } = place;
 
   return (
-    <Card>
+    <Card id={id}>
       <Media image={photo?.images.medium.url} />
       <Content>
         <div className="details">
           <h4>{name}</h4>
           <p>{price_level}</p>
         </div>
+
+        <div className="details">
+          <div className="ratings">
+            <p>{raw_ranking.split('').splice(0, 3).join('')}</p>
+            <Rating rating={rating} />
+            <p>({num_reviews})</p>
+          </div>
+        </div>
+
         <div className="details">
           <FontAwesomeIcon icon={faPhoneAlt} />
           <p>{phone}</p>
@@ -44,13 +54,13 @@ const PlaceDetails = ({ place }) => {
         </div>
         <div className="details">
           {website && (
-            <a href={website} target="_blank">
+            <a href={website} target="_blank" rel="noreferrer">
               WEBSITE
             </a>
           )}
 
           {web_url && (
-            <a href={web_url} target="_blank">
+            <a href={web_url} target="_blank" rel="noreferrer">
               TRIPADVISOR
             </a>
           )}

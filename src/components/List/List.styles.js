@@ -56,4 +56,5 @@ export const Content = styled.div`
   margin-bottom: 1.5rem;
   align-items: center;
   row-gap: 2rem;
+  scroll-behavior: smooth;
 `;
