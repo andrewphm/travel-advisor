@@ -17,7 +17,7 @@ export const Card = styled.div`
 `;
 
 export const Media = styled.div`
-  height: 175px;
+  height: 200px;
   width: 100%;
   overflow: hidden;
   background-image: url(${(props) => props.image});
@@ -26,4 +26,25 @@ export const Media = styled.div`
   background-position: center center;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  justify-content: flex-start;
+
+  h4 {
+    padding: 0.5em 0 1.5em 0;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+
+  .details-awards {
+    display: flex;
+    flex-direction: column;
+  }
+`;

@@ -48,7 +48,7 @@ const List = ({ places, isLoading }) => {
         <Spinner />
       ) : (
         <Content>
-          {places.map((place, i) => {
+          {places?.map((place, i) => {
             if (!place.ad_position)
               return <PlaceDetails key={i} place={place} />;
           })}

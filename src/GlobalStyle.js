@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
         font-family: 'Abel', sans-serif;
+        padding: 0;
+        margin: 0;
     }
 
     #root {
@@ -44,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
 
         p {
             font-size: 1rem;
+            margin: 0;
         }
     }
 `;
