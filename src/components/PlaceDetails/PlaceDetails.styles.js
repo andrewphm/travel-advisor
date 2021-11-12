@@ -61,7 +61,7 @@ export const Content = styled.div`
 
     .stars {
       position: relative;
-      bottom: 3px;
+      bottom: 2px;
     }
   }
 

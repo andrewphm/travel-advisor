@@ -15,8 +15,8 @@ import Spinner from './components/Spinner';
 
 const App = () => {
   const [places, setPlaces] = useState([]);
-  const [coordinates, setCoordinates] = useState({});
-  const [bounds, setBounds] = useState({});
+  const [coordinates, setCoordinates] = useState();
+  const [bounds, setBounds] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   // Get current position and save to state
@@ -33,9 +33,11 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
-      setPlaces(data);
-    });
+    if (bounds && coordinates) {
+      API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
+        setPlaces(data);
+      });
+    }
   }, [bounds]);
 
   return (

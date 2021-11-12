@@ -14,15 +14,24 @@ const Rating = ({ rating }) => {
 
   for (let i = 0; i < 5; i++) {
     if (num >= 1) {
-      stars.push(<FontAwesomeIcon icon={fasStar} color="#fbbc05" size="xs" />);
+      stars.push(
+        <FontAwesomeIcon key={i} icon={fasStar} color="#fbbc05" size="xs" />
+      );
     }
     if (num > 0 && num < 1) {
       stars.push(
-        <FontAwesomeIcon icon={faStarHalfAlt} color="#fbbc05" size="xs" />
+        <FontAwesomeIcon
+          key={i}
+          icon={faStarHalfAlt}
+          color="#fbbc05"
+          size="xs"
+        />
       );
     }
     if (num <= 0) {
-      stars.push(<FontAwesomeIcon icon={farStar} color="#fbbc05" size="xs" />);
+      stars.push(
+        <FontAwesomeIcon key={i} icon={farStar} color="#fbbc05" size="xs" />
+      );
     }
     num -= 1;
   }
