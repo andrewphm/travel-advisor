@@ -23,7 +23,6 @@ const PlaceDetails = ({ place, id }) => {
     web_url,
     website,
     num_reviews,
-    raw_ranking,
     rating,
     business_listings,
   } = place;
@@ -41,7 +40,7 @@ const PlaceDetails = ({ place, id }) => {
 
         <div className="details">
           <div className="ratings">
-            <p>{raw_ranking.split('').splice(0, 3).join('')}</p>
+            <p>{rating}</p>
             <Rating rating={rating} />
             <p>({num_reviews})</p>
           </div>

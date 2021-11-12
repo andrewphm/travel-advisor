@@ -11,7 +11,6 @@ import Grid from './components/Grid';
 import Header from './components/Header';
 import List from './components/List';
 import Map from './components/Map';
-import Spinner from './components/Spinner';
 
 const App = () => {
   const [places, setPlaces] = useState([]);
@@ -19,7 +18,8 @@ const App = () => {
   const [bounds, setBounds] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [type, setType] = useState('restaurants');
-  const [rating, setRating] = useState('All');
+  const [rating, setRating] = useState(0);
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
 
   // Get current position and save to state
   useEffect(() => {
@@ -32,12 +32,20 @@ const App = () => {
     );
   }, []);
 
+  // Filter places by rating
+  useEffect(() => {
+    const filtered = places.filter((place) => place.rating > rating);
+    setFilteredPlaces(filtered);
+  }, [rating]);
+
+  // Get data when type, or bounds change
   useEffect(() => {
     setIsLoading(true);
 
     const getPlaces = async () => {
       await API.getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
         setPlaces(data);
+        setFilteredPlaces([]);
         setIsLoading(false);
       });
     };
@@ -53,7 +61,7 @@ const App = () => {
       <Header />
       <Grid>
         <List
-          places={places}
+          places={filteredPlaces.length ? filteredPlaces : places}
           isLoading={isLoading}
           type={type}
           setType={setType}
@@ -64,7 +72,7 @@ const App = () => {
           setCoordinates={setCoordinates}
           setBounds={setBounds}
           coordinates={coordinates}
-          places={places}
+          places={filteredPlaces.length ? filteredPlaces : places}
         />
       </Grid>
       <GlobalStyle />
