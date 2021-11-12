@@ -23,10 +23,8 @@ const App = () => {
 
   // Get current position and save to state
   useEffect(() => {
-    console.log('trying to get current location');
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
-        console.log('Got current location');
         setCoordinates({ lat: latitude, lng: longitude });
       }
     );
@@ -44,9 +42,10 @@ const App = () => {
 
     const getPlaces = async () => {
       await API.getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
-        console.log(data, 'unfiltered');
-        setPlaces(data.filter((place) => place.name));
-        console.log(places, 'filtered');
+        setPlaces(
+          data?.filter((place) => place.name && Number(place.num_reviews) > 0)
+        );
+
         setFilteredPlaces([]);
         setIsLoading(false);
       });
@@ -59,7 +58,6 @@ const App = () => {
 
   return (
     <>
-      {console.log('rendering')}
       <Header setCoordinates={setCoordinates} />
       <Grid>
         <List
