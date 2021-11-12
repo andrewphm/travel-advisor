@@ -18,25 +18,32 @@ const App = () => {
   const [coordinates, setCoordinates] = useState();
   const [bounds, setBounds] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [type, setType] = useState('Choose a type');
+  const [rating, setRating] = useState('All');
 
   // Get current position and save to state
   useEffect(() => {
-    setIsLoading(true);
     console.log('trying to get current location');
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         console.log('Got current location');
         setCoordinates({ lat: latitude, lng: longitude });
-        setIsLoading(false);
       }
     );
   }, []);
 
   useEffect(() => {
-    if (bounds && coordinates) {
-      API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
+    setIsLoading(true);
+
+    const getPlaces = async () => {
+      await API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
         setPlaces(data);
+        setIsLoading(false);
       });
+    };
+
+    if (bounds && coordinates) {
+      getPlaces();
     }
   }, [bounds]);
 
@@ -45,17 +52,20 @@ const App = () => {
       {console.log('rendering')}
       <Header />
       <Grid>
-        <List places={places} isLoading={isLoading} />
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <Map
-            setCoordinates={setCoordinates}
-            setBounds={setBounds}
-            coordinates={coordinates}
-            places={places}
-          />
-        )}
+        <List
+          places={places}
+          isLoading={isLoading}
+          type={type}
+          setType={setType}
+          rating={rating}
+          setRating={setRating}
+        />
+        <Map
+          setCoordinates={setCoordinates}
+          setBounds={setBounds}
+          coordinates={coordinates}
+          places={places}
+        />
       </Grid>
       <GlobalStyle />
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Styles
 import { Wrapper, FormControl, Content } from './List.styles';
@@ -7,10 +7,7 @@ import { Wrapper, FormControl, Content } from './List.styles';
 import PlaceDetails from '../PlaceDetails';
 import Spinner from '../Spinner';
 
-const List = ({ places, isLoading }) => {
-  const [type, setType] = useState('Choose a type');
-  const [rating, setRating] = useState('All');
-
+const List = ({ places, isLoading, type, setType, rating, setRating }) => {
   return (
     <Wrapper>
       <FormControl>

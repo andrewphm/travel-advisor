@@ -44,14 +44,19 @@ const PlaceDetails = ({ place, id }) => {
           </div>
         </div>
 
-        <div className="details">
-          <FontAwesomeIcon icon={faPhoneAlt} />
-          <p>{phone}</p>
-        </div>
-        <div className="details">
-          <FontAwesomeIcon icon={faMapMarkerAlt} />
-          <p>{address?.split(',').splice(0, 2).join(', ')}</p>
-        </div>
+        {phone && (
+          <div className="details">
+            <FontAwesomeIcon icon={faPhoneAlt} />
+            <p>{phone}</p>
+          </div>
+        )}
+
+        {address && (
+          <div className="details">
+            <FontAwesomeIcon icon={faMapMarkerAlt} />
+            <p>{address?.split(',').splice(0, 2).join(', ')}</p>
+          </div>
+        )}
         <div className="details">
           {website && (
             <a href={website} target="_blank" rel="noreferrer">

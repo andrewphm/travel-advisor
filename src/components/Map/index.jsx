@@ -19,7 +19,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
         bootstrapURLKeys={{ key: API_KEY }}
         defaultCenter={defaultCenter}
         center={coordinates}
-        defaultZoom={15}
+        defaultZoom={14}
         margin={[50, 50, 50, 50]}
         options={''}
         onChange={(e) => {
