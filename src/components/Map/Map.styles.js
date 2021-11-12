@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 
 export const Preview = styled.div`
   position: relative;
-  color: black;
   background-color: white;
   width: 100px;
   display: flex;
@@ -16,10 +15,21 @@ export const Preview = styled.div`
   align-items: center;
   padding: 5px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+  transition: ease 0.3s all;
+
+  :hover {
+    z-index: 100;
+    transform: scale(1.05);
+  }
+
+  a {
+    text-decoration: none;
+  }
 
   p {
     font-size: 0.8rem;
     text-align: center;
+    color: black;
   }
 
   .img-wrapper {
@@ -27,13 +37,15 @@ export const Preview = styled.div`
     height: 100%;
     max-height: 80px;
     overflow: hidden;
+    margin: 2px;
   }
 
   img {
     width: 100%;
   }
 
-  :hover {
-    z-index: 100;
+  .stars {
+    display: flex;
+    justify-content: center;
   }
 `;

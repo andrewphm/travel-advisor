@@ -32,16 +32,19 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
         {places?.map((place, i) => {
           const { longitude, latitude, name, rating, ad_position, photo } =
             place;
-          if (ad_position) return;
-          return (
-            <Preview lat={latitude} lng={longitude}>
-              <p>{name}</p>
-              <div className="img-wrapper">
-                <img src={photo?.images.medium.url} alt={'hi'} />
-              </div>
-              <Rating rating={rating} />
-            </Preview>
-          );
+          if (!ad_position) {
+            return (
+              <Preview lat={latitude} lng={longitude}>
+                <a href={`#${i}`}>
+                  <p>{name}</p>
+                  <div className="img-wrapper">
+                    <img src={photo?.images.medium.url} alt={name} />
+                  </div>
+                  <Rating rating={rating} />
+                </a>
+              </Preview>
+            );
+          }
         })}
       </GoogleMapReact>
     </Wrapper>
