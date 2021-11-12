@@ -58,7 +58,7 @@ const App = () => {
   return (
     <>
       {console.log('rendering')}
-      <Header />
+      <Header setCoordinates={setCoordinates} />
       <Grid>
         <List
           places={filteredPlaces.length ? filteredPlaces : places}
