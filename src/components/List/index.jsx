@@ -20,8 +20,8 @@ const List = ({ places, isLoading, type, setType, rating, setRating }) => {
               onChange={(e) => setType(e.target.value)}
               name="type"
             >
-              <option value="restaurants">Restaurant</option>
-              <option value="hotels">Hotel</option>
+              <option value="restaurants">Restaurants</option>
+              <option value="hotels">Hotels</option>
               <option value="attractions">Attractions</option>
             </select>
           </form>

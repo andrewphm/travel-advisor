@@ -18,7 +18,7 @@ const App = () => {
   const [coordinates, setCoordinates] = useState();
   const [bounds, setBounds] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [type, setType] = useState('Choose a type');
+  const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('All');
 
   // Get current position and save to state
@@ -36,7 +36,7 @@ const App = () => {
     setIsLoading(true);
 
     const getPlaces = async () => {
-      await API.getPlacesData(bounds.sw, bounds.ne).then((data) => {
+      await API.getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
         setPlaces(data);
         setIsLoading(false);
       });
@@ -45,7 +45,7 @@ const App = () => {
     if (bounds && coordinates) {
       getPlaces();
     }
-  }, [bounds]);
+  }, [bounds, type]);
 
   return (
     <>

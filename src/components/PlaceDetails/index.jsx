@@ -25,7 +25,10 @@ const PlaceDetails = ({ place, id }) => {
     num_reviews,
     raw_ranking,
     rating,
+    business_listings,
   } = place;
+
+  const hotel_url = business_listings?.mobile_contacts[0]?.value || undefined;
 
   return (
     <Card id={id}>
@@ -57,19 +60,22 @@ const PlaceDetails = ({ place, id }) => {
             <p>{address?.split(',').splice(0, 2).join(', ')}</p>
           </div>
         )}
-        <div className="details">
-          {website && (
-            <a href={website} target="_blank" rel="noreferrer">
+        {(website || web_url || hotel_url) && (
+          <div className="details">
+            <a
+              href={website ? website : hotel_url}
+              target="_blank"
+              rel="noreferrer"
+            >
               WEBSITE
             </a>
-          )}
-
-          {web_url && (
-            <a href={web_url} target="_blank" rel="noreferrer">
-              TRIPADVISOR
-            </a>
-          )}
-        </div>
+            {web_url && (
+              <a href={web_url} target="_blank" rel="noreferrer">
+                TRIPADVISOR
+              </a>
+            )}
+          </div>
+        )}
         <div className="details">
           <p>{ranking}</p>
         </div>
