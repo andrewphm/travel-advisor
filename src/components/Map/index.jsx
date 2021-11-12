@@ -1,9 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
-// Config
-import { API_KEY } from '../../config';
-
 //styles
 import { Wrapper, Preview } from './Map.styles';
 
@@ -16,7 +13,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
   return (
     <Wrapper>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: API_KEY }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEAPI_KEY }}
         defaultCenter={defaultCenter}
         center={coordinates}
         defaultZoom={14}
@@ -30,21 +27,18 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
         onChildClick={''}
       >
         {places?.map((place, i) => {
-          const { longitude, latitude, name, rating, ad_position, photo } =
-            place;
-          if (!ad_position) {
-            return (
-              <Preview lat={latitude} lng={longitude}>
-                <a href={`#${i}`}>
-                  <p>{name}</p>
-                  <div className="img-wrapper">
-                    <img src={photo?.images.medium.url} alt={name} />
-                  </div>
-                  <Rating rating={rating} />
-                </a>
-              </Preview>
-            );
-          }
+          const { longitude, latitude, name, rating, photo } = place;
+          return (
+            <Preview lat={latitude} lng={longitude}>
+              <a href={`#${i}`}>
+                <p>{name}</p>
+                <div className="img-wrapper">
+                  <img src={photo?.images.medium.url} alt={name} />
+                </div>
+                <Rating rating={rating} />
+              </a>
+            </Preview>
+          );
         })}
       </GoogleMapReact>
     </Wrapper>

@@ -19,11 +19,13 @@ export const FormControl = styled.div`
   padding-bottom: 1rem;
   box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  font-size: 0.9rem;
 
   h1 {
     font-size: clamp(1rem, 7vw, 1.4rem);
     font-weight: 700;
     text-align: center;
+    margin: 8px auto;
   }
 
   .form-container {

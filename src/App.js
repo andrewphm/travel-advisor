@@ -44,7 +44,9 @@ const App = () => {
 
     const getPlaces = async () => {
       await API.getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
-        setPlaces(data);
+        console.log(data, 'unfiltered');
+        setPlaces(data.filter((place) => place.name));
+        console.log(places, 'filtered');
         setFilteredPlaces([]);
         setIsLoading(false);
       });

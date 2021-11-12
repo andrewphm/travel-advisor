@@ -17,19 +17,18 @@ const apiSettings = {
           },
           headers: {
             'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
-            'x-rapidapi-key':
-              '692449dd6dmsh60fc95a85b6d88fp16581djsn3f44c421f747',
+            'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
           },
         }
       );
-
-      console.log(data);
 
       return data;
     } catch (error) {
       console.log(error);
     }
   },
+
+  getWeatherData: async () => {},
 };
 
 export default apiSettings;
